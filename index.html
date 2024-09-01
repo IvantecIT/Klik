@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Красивый сайт с кнопкой и звуком</title>
+    <style>
+        /* Основные стили */
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Дизайн кнопки */
+        .button {
+            padding: 20px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+            transform: translateY(-5px);
+            box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:active {
+            transform: translateY(0px);
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Стиль счетчика */
+        #counter {
+            margin-top: 20px;
+            font-size: 36px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>Красивый сайт с кнопкой и звуком</h1>
+    <button class="button" id="clickButton">Нажми меня</button>
+    <div id="counter">Нажато: 0 раз</div>
+
+    <!-- Аудио тег для звука "Boink" -->
+    <audio id="boinkSound" src="https://freesound.org/data/previews/352/352661_4019027-lq.mp3"></audio>
+
+    <script>
+        let count = 0;
+        const button = document.getElementById('clickButton');
+        const counter = document.getElementById('counter');
+        const boinkSound = document.getElementById('boinkSound');
+
+        button.onclick = function() {
+            count++;
+            counter.textContent = `Нажато: ${count} раз`;
+            boinkSound.play();
+        };
+    </script>
+</body>
+</html>
